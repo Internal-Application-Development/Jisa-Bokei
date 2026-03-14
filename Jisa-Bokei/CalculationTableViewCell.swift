@@ -28,7 +28,6 @@ class CalculationTableViewCell: UITableViewCell {
 
     // セルのConfigration
     func configureCell(_ data: BaseGridData,_ check: Bool) {
-//      print("CalculationTableViewCell:configureCell-1 call.")
         _ = configureCellCommon(data)
         // アクセサリタイプ
         checkMark.image = check ? UIImage(named:IMAGE.CHECKMARK)?.tint(color: .systemBlue) : nil
@@ -36,7 +35,6 @@ class CalculationTableViewCell: UITableViewCell {
 
     // セルのConfigration（基準日時差表示用）
     func configureCell(_ base: BaseGridData,_ data: BaseGridData) {
-//      print("CalculationTableViewCell:configureCell-2 call.")
         let date2s = configureCellCommon(data)!
         
         // 時差計算と文字列作成
@@ -68,9 +66,7 @@ class CalculationTableViewCell: UITableViewCell {
         formatter.unitsStyle = .brief
         formatter.allowedUnits = [.hour, .minute]
         formatter.zeroFormattingBehavior = .pad
-//        print("CalculationTableViewCell:date1=\(date1s), date2=\(date2s)")
         // 時差文字列追加
-        print("configureCell:span=\(span)")
         datetime.text! += " ("
         if span >= 0 {
             datetime.text! += "+"
@@ -84,7 +80,6 @@ class CalculationTableViewCell: UITableViewCell {
     }
 
     func configureCellCommon(_ data: BaseGridData) -> String? {
-//      print("CalculationTableViewCell:configureCellCommon call.")
         //
         let country_Name   = data.getCountry()     ?? "Unknown"     // 国名/略称
         let city_Name      = data.getCity()        ?? "Unknown"     // 都市名/名称（日本語）
@@ -107,11 +102,9 @@ class CalculationTableViewCell: UITableViewCell {
             // タイトル（Value Text）
             cityName.text = city_Name + " (" + country_Name + ")"
             // サマータイムアイコン
-//        print("CalculationTableViewCell:configureCellCommon: isDataSet=\(data.isDateSet())")
             if data.isDateSet() {
                 let datetime = data.getDate()!
                 let timeZone = data.getTimezone()!
-//                print("CalculationTableViewCell:configureCellCommon: isDaylightSavingTime=\(timeZone.isDaylightSavingTime(for: datetime))")
                 if timeZone.isDaylightSavingTime(for: datetime) {
                     isDaylightTime = true
                 }

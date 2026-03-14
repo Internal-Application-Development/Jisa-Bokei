@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class DataViewController: UIViewController ,UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate {
 
@@ -19,10 +20,10 @@ class DataViewController: UIViewController ,UITableViewDelegate, UITableViewData
     var insertData         : BaseGridData? = nil    // 挿入時用データ
     var actionCellIndexPath: IndexPath?    = nil    // アクション対象セルのインデックス
     var tableView          : UITableView!           // テーブルビュー
-    
+    var bannerView         : AdManagerBannerView!   // 広告ビュー
+
     // テーブルビューのロード
     override func viewDidLoad() {
-        print("DataViewController:viewDidLoad call! reuseIdentifier='\(reuseIdentifier)'")
         super.viewDidLoad()
 
         // Do any additional setup after loading the view, typically from a nib.
@@ -30,8 +31,6 @@ class DataViewController: UIViewController ,UITableViewDelegate, UITableViewData
         tableView.dataSource = self
         tableView.delegate = self
         tableView.allowsMultipleSelection = false                   // trueで複数選択、falseで単一選択
-//        tableView.rowHeight = UITableView.automaticDimension      // セルの高さ自動調整
-//        tableView.estimatedRowHeight = 40;
 
         // ナビゲーションメニューの設定
         navigationController?.delegate = self
@@ -42,7 +41,6 @@ class DataViewController: UIViewController ,UITableViewDelegate, UITableViewData
     
     // 編集モード切り替え（メニューボタン）
     override func setEditing(_ editing: Bool, animated: Bool) {
-        print("DataViewController:setEditing call.")
         super.setEditing(editing, animated: animated)
         tableView.isEditing = editing
     }
@@ -56,105 +54,103 @@ class DataViewController: UIViewController ,UITableViewDelegate, UITableViewData
 
     // 各indexPathのcellがタップされた際に呼び出されます．
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("DataViewController:tableView(didSelectRowAt): indexPath=\(indexPath)")
         // タップ後すぐ非選択状態にするには下記メソッドを呼び出します．
         tableView.deselectRow(at: indexPath, animated: true)
         tableView.reloadData()
     }
-/*
-    // セル高さ
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(CONST.DATAVIEW_ROWHEIGHT)
-    }
-*/
+
     // セル並べ替えの設定（有効化）
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         let n = tableView.numberOfRows(inSection: indexPath.section)
-//        print("DataViewController: tableView(canMoveRowAt): isEditing=\(isEditing), n=\(n)")
         // Return false if you do not want the specified item to be editable.
         return !isEditing ? false : (!(n == 1))
     }
 
-    // 編集モード時のアクション設定
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    // 右から左へスワイプ
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+   
+        // 作成済みのセル数によってボタンの付加内容を変える
+        let nRows = tableView.numberOfRows(inSection: indexPath.section)
+        // セクション内セル数が１個の場合は削除メニューはなし
+        if nRows == 1 { return nil }
 
-        let space = String(repeating:" ", count:8)
-        // 削除メニュー
-        let deleteAction = UITableViewRowAction(style: .destructive, title: space) { (action: UITableViewRowAction, idx: IndexPath) in
-            self.actionCellIndexPath = idx
+        let deleteAction = UIContextualAction(style: .destructive,
+                                              title: CONST.DELETE,
+                                              handler: { (action: UIContextualAction, view: UIView, completion: (Bool) -> Void) in
+            self.actionCellIndexPath = indexPath
             self.deleteData(tableView, indexPath)
             tableView.reloadData()
-        }
-        self.fixAction(deleteAction, text: CONST.DELETE, image: UIImage(named: IMAGE.TRASH)!, color: .white, bgColor: .red)
+            // 処理を実行できなかった場合はfalse、できればTrue
+            completion(true)
+        })
+        deleteAction.image = UIImage(systemName: IMAGE.TRASH )
+        
+        let config = UISwipeActionsConfiguration(actions: [deleteAction])
+        // 全画面スワイプで実行されないようにしたい場合:
+        config.performsFirstActionWithFullSwipe = false
 
-        // 追加メニュー
-        let insertAction = UITableViewRowAction(style: .normal, title: space) { (action: UITableViewRowAction, idx: IndexPath) in
-            self.actionCellIndexPath = idx
-            self.insertData(indexPath)
-            tableView.reloadData()
-        }
-        self.fixAction(insertAction, text: CONST.INSERT, image: UIImage(named: IMAGE.INSERT)!, color: .white)
+        return config
+    }
+    
+    // 左から右へスワイプ
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        var config:UISwipeActionsConfiguration
 
-        // 更新メニューを追加
-        let updateAction = UITableViewRowAction(style: .normal, title: space) { (action: UITableViewRowAction, idx: IndexPath) in
-            self.actionCellIndexPath = idx
+        let updateAction = UIContextualAction(style: .normal,
+                                              title: CONST.UPDATE,
+                                              handler: {(action: UIContextualAction, view: UIView, completion: (Bool) -> Void) in
+            self.actionCellIndexPath = indexPath
             self.updateData(indexPath)
             tableView.reloadData()
-        }
-        self.fixAction(updateAction, text: CONST.UPDATE, image: UIImage(named: IMAGE.UPDATE)!, color: .white)
+            // 処理を実行できなかった場合はfalse、できればTrue
+            completion(true)
+        })
+        updateAction.image = UIImage(systemName: IMAGE.UPDATE)
+        updateAction.backgroundColor = UIColor(red: 101/255.0, green: 198/255.0, blue: 187/255.0, alpha: 1)
+        
+        let insertAction = UIContextualAction(style: .normal,
+                                              title: CONST.INSERT,
+                                              handler: { (action: UIContextualAction, view: UIView, completion: (Bool) -> Void) in
+            self.actionCellIndexPath = indexPath
+            self.insertData(indexPath)
+            tableView.reloadData()
+            // 処理を実行できなかった場合はfalse、できればTrue
+            completion(true)
+        })
+        insertAction.backgroundColor = UIColor(red: 210/255.0, green: 82/255.0, blue: 127/255.0, alpha: 1)
+        insertAction.image = UIImage(systemName: IMAGE.INSERT)
 
         // 作成済みのセル数によってボタンの付加内容を変える
         let nRows = tableView.numberOfRows(inSection: indexPath.section)
-        print("DataViewController:tableView(editActionsForRowAt) call! reuseIdentifier='\(reuseIdentifier)', nRows=\(nRows)")
-
-        // セクション内セル数が１個の場合は削除メニューはなし
-        if nRows == 1 {
-            return [insertAction, updateAction]
-        } else {
-            // セクション内セル数がMAX値の場合は追加メニューはなし
-            if  reuseIdentifier == ID.CELL.CLOCK && nRows == CONST.CLOCK_MAX  ||
-                reuseIdentifier == ID.CELL.CALC  && indexPath.section == 0 && nRows == CONST.SECTION0_MAX ||
-                reuseIdentifier == ID.CELL.CALC  && indexPath.section == 1 && nRows == CONST.SECTION1_MAX
-            {
-                return [deleteAction, updateAction]
-            }
-            else
-            {
-                return [deleteAction, insertAction, updateAction]
-            }
+        // セクション内セル数がMAX値の場合は追加メニューはなし
+        if  reuseIdentifier == ID.CELL.CLOCK && nRows == CONST.CLOCK_MAX  ||
+            reuseIdentifier == ID.CELL.CALC  && indexPath.section == 0 && nRows == CONST.SECTION0_MAX ||
+            reuseIdentifier == ID.CELL.CALC  && indexPath.section == 1 && nRows == CONST.SECTION1_MAX
+        {
+            config = UISwipeActionsConfiguration(actions: [updateAction])
         }
+        else
+        {
+            config = UISwipeActionsConfiguration(actions: [updateAction, insertAction])
+        }
+
+        // 全画面スワイプで実行されないようにしたい場合:
+        config.performsFirstActionWithFullSwipe = false
+
+        return config
+    }
+    // 各indexPathのcellが横にスワイプされスワイプメニューが表示される際に呼ばれます．
+    func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
+        // スワイプ中は編集ボタンを押せなくする
+        self.editButtonItem.isEnabled = false
     }
 
-    private func fixAction(_ action:UITableViewRowAction, text:String, image:UIImage, color:UIColor, bgColor: UIColor = .gray) {
-        // make sure the image is a mask that we can color with the passed color
-        let mask = image.withRenderingMode(.alwaysTemplate)
-        // compute the anticipated width of that non empty string
-        let stockSize = action.title!.size(withAttributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18)])
-        // I know my row height
-        let height:CGFloat = CGFloat(CONST.DATAVIEW_ROWHEIGHT)
-        // Standard action width computation seems to add 15px on either side of the text
-        let width = (stockSize.width + 30)
-        let actionSize = CGSize(width: width, height: height)
-        // lets draw an image of actionSize
-        UIGraphicsBeginImageContextWithOptions(actionSize, false, 0.0)
-        if let context = UIGraphicsGetCurrentContext() {
-            context.clear(CGRect(origin: .zero, size: actionSize))
-        }
-        color.set()
-        let attributes = [NSAttributedString.Key.foregroundColor: color, NSAttributedString.Key.font: UIFont(name: "Avenir-Book", size: 10)]
-        let textSize = text.size(withAttributes: attributes as [NSAttributedString.Key : Any])
-        // implementation of `half` extension left up to the student
-        let textPoint = CGPoint(x: (width - textSize.width)/2, y: (height - (textSize.height * 3))/2 + (textSize.height * 2))
-        text.draw(at: textPoint, withAttributes: attributes as [NSAttributedString.Key : Any])
-        let  maskHeight = textSize.height * 2
-        let maskRect = CGRect(x: (width - maskHeight)/2, y: textPoint.y - maskHeight, width: maskHeight, height: maskHeight)
-        mask.draw(in: maskRect)
-        if let result = UIGraphicsGetImageFromCurrentImageContext() {
-            // adjust the passed in action's backgroundColor to a patternImage
-            action.backgroundColor = UIColor(patternImage: result.withBackground(color: bgColor))
-        }
-        UIGraphicsEndImageContext()
+    // 各indexPathのcellのスワイプメニューが非表示になった際に呼ばれます．
+    func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
+        // 編集ボタンを元に戻す
+        self.editButtonItem.isEnabled = true
     }
 
     //
@@ -192,29 +188,77 @@ class DataViewController: UIViewController ,UITableViewDelegate, UITableViewData
 
     // グリッドデータ設定
     func setCellData(_ base: BaseGridData) {
-        print("DataViewController: setCellData call!")
+        print("DataViewController: setCellData dummy!")
     }
 
     // セル並べ替えの処理
     func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        print("DataViewController: tableView(moveRowAt) call!")
+        print("DataViewController: tableView(moveRowAt) dummy!")
     }
         
     // セル削除の処理
     func deleteData(_ tableView: UITableView,_ indexPath: IndexPath) {
-        print("DataViewController: deleteData call!")
+        print("DataViewController: deleteData dummy!")
     }
 
     // セル追加の処理
     func insertData(_ indexPath: IndexPath) {
-        print("DataViewController: insertData call!")
+        print("DataViewController: insertData dummy!")
     }
     
     // セル更新の処理
     func updateData(_ indexPath: IndexPath) {
-        print("DataViewController: updateDate call!")
+        print("DataViewController: updateDate dummy!")
     }
-    
+
+    //
+    // 広告表示関係
+    //
+    func createBannerViewProgrammatically() {
+      // [START create_admanager_banner_view]
+      // Initialize the banner view.
+      bannerView = AdManagerBannerView()
+      bannerView.translatesAutoresizingMaskIntoConstraints = false
+      view.addSubview(bannerView)
+
+      // This example doesn't give width or height constraints, as the ad size gives the banner an
+      // intrinsic content size to size the view.
+      // Align the banner's bottom edge with the safe area's bottom edge
+      let bannerViewTopConstraint = bannerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+      // Center the banner horizontally in the view
+      let bannerViewCenterXConstraint = bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+      // Align the banner's bottom edge with the safe area's bottom edge
+      let tableViewTopConstraint = self.tableView.topAnchor.constraint(equalTo: bannerView.bottomAnchor)
+      // 制約設定
+      NSLayoutConstraint.activate([bannerViewTopConstraint, bannerViewCenterXConstraint, tableViewTopConstraint])
+      // [END create_admanager_banner_view]
+    }
+
+    func loadInlineAdaptiveBanner() {
+      // [START get_width]
+      let totalWidth = view.bounds.width
+      // Make sure the ad fits inside the readable area.
+      let insets = view.safeAreaInsets
+      let adWidth = totalWidth - insets.left - insets.right
+      // [END get_width]
+
+      // View is not laid out yet, return early.
+      guard adWidth > 0 else { return }
+
+      // [START set_adaptive_ad_size]
+      bannerView.adSize = portraitAnchoredAdaptiveBanner(width: adWidth)
+
+      // For Ad Manager, the `adSize` property is used for the adaptive banner ad
+      // size. The `validAdSizes` property is used as normal for the supported
+      // reservation sizes for the ad placement.
+      let validAdSize = currentOrientationAnchoredAdaptiveBanner(width: adWidth)
+      bannerView.validAdSizes = [nsValue(for: validAdSize)]
+      // [END set_adaptive_ad_size]
+
+      // Test ad unit ID for inline adaptive banners.
+      bannerView.adUnitID = CONST.AD_UNIT_ID_PROD
+      bannerView.load(AdManagerRequest())
+    }
 }
 
 extension UIImage {

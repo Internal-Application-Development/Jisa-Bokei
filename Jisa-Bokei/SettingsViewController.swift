@@ -32,30 +32,25 @@ class SettingsViewController: UIViewController {
 
     // 設定処理
     func clickDoneButton(_ sender: Any) {
-        print("SettingsViewController:clickButton call.")
         
         // スプラッシュ画面
         if SplashSW.isOn != userDefaults.bool(forKey: .DISPLAY_SPLASH) {
             userDefaults.set(SplashSW.isOn, forKey:.DISPLAY_SPLASH)
-            print("SplashSW.isOn = \(SplashSW.isOn)")
         }
         
         // 起動時モード
         if StartUpModeSW.selectedSegmentIndex != getStartupMode() {
             userDefaults.set(StartUpModeSW.selectedSegmentIndex, forKey: .START_MODE)
-            print("StartUpModeSW.selectedSegmentIndex = \(StartUpModeSW.selectedSegmentIndex)")
         }
         
         // 時差表示
         if TimeDiffSW.selectedSegmentIndex != getTimeDiffSW() {
             userDefaults.set(TimeDiffSW.selectedSegmentIndex, forKey:.DISPLAY_TIMEDIFF)
-            print("TimeDiffSW.selectedSegmentIndex = \(TimeDiffSW.selectedSegmentIndex)")
         }
         
         // 時刻表示
         if TimeDispStyle.selectedSegmentIndex != getTimeDispStyle() {
             userDefaults.set(TimeDispStyle.selectedSegmentIndex, forKey:.TIME_STYLE)
-            print("TimeDispStyle.selectedSegmentIndex = \(TimeDispStyle.selectedSegmentIndex)")
         }
     }
 
@@ -66,7 +61,6 @@ class SettingsViewController: UIViewController {
 
         // スプラッシュ画面
         let startSplash = userDefaults.bool(forKey: .DISPLAY_SPLASH)
-        print("DISPLAY_SPLASH = \((startSplash == false ? "Off" : "On"))")
         SplashSW.setOn(startSplash, animated: true)
 
         // 起動時モード
@@ -113,7 +107,6 @@ class SettingsViewController: UIViewController {
         if startUpMode == MODE.START.LAST {
             startUpMode = userDefaults.integer(forKey: .START_LAST)
         }
-        print("START_MODE = \(startUpMode)")
         return startUpMode
     }
 
@@ -121,7 +114,6 @@ class SettingsViewController: UIViewController {
     func getTimeDiffSW() -> Int {
         userDefaults.register(defaults:[UDEFS.ITEM.TIMEDIFF_MODE:MODE.TIMEDIFF.NONE])
         let timeDiff = userDefaults.integer(forKey: .DISPLAY_TIMEDIFF)
-        print("TIMEDIFF_MODE = \(timeDiff)")
         return timeDiff
     }
 
@@ -129,7 +121,6 @@ class SettingsViewController: UIViewController {
     func getTimeDispStyle() -> Int {
         userDefaults.register(defaults:[UDEFS.ITEM.TIME_STYLE:MODE.TIMESTYLE.STANDARD])
         let timeStyle = userDefaults.integer(forKey: .TIME_STYLE)
-        print("TIME_STYLE = \(timeStyle)")
         return timeStyle
     }
 }

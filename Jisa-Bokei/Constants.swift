@@ -63,7 +63,9 @@ struct CONST {
     public static let CLOCK    = "世界時計"
     public static let DELETE   = "削除"
     public static let INSERT   = "挿入"
-    public static let UPDATE   = "更新"
+    public static let UPDATE   = "変更"
+    public static let AD_UNIT_ID_TEST = "ca-app-pub-3940256099942544/2435281174"
+    public static let AD_UNIT_ID_PROD = "ca-app-pub-9743348087007542/7399184966"
 }
 
 struct ENTITY {
@@ -168,9 +170,9 @@ struct TITLE {
 
 struct IMAGE {
     public static let CHECKMARK = "Checkmark"
-    public static let TRASH     = "Trash"
-    public static let INSERT    = "Plus.Circle"
-    public static let UPDATE    = "Arrow.Circlepath"
+    public static let TRASH     = "trash"
+    public static let INSERT    = "plus"
+    public static let UPDATE    = "square.and.pencil"
     public static let NO_IMAGE  = "NoImage"
     public static let SUMMER    = "Sun"
 }

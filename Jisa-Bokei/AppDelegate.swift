@@ -7,6 +7,7 @@
 //
 
 import UIKit
+//import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // 起動直後に行う処理
+        
+        // Initialize the Google Mobile Ads SDK.
+//        MobileAds.shared.start()
+        
         return true
     }
 
@@ -30,12 +35,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //
         dataController = DataController() {
-//            print("AppDelegate:application(didFinishLaunchingWithOptions):DataController initializing")
         }
 
         //
         if userDefaults.object(forKey: .DISPLAY_SPLASH) == nil {
-//            print("AppDelegate:application(didFinishLaunchingWithOptions): display_SPLASH is nil")
             userDefaults.set(true, forKey: .DISPLAY_SPLASH)
         }
 
@@ -47,7 +50,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-//        print("AppDelegate:application(supportedInterfaceOrientationsFor) call.")
         return .all
     }
 
@@ -56,7 +58,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // アプリ終了時の機能モードを保存
         if let tabBar: TabBarController = self.window?.rootViewController as? TabBarController {
-//            print("AppDelegate:applicationWillTerminate: tabBar.selectedIndex = \(tabBar.selectedIndex)")
             userDefaults.set(tabBar.selectedIndex, forKey: .START_LAST)
         } else {
             print("AppDelegate:applicationWillTerminate: tabBar = nil")

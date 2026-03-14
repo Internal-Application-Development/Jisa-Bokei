@@ -1,0 +1,815 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A14A6F22557764E00A67A00 /* Abbreviation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A14A6F12557764E00A67A00 /* Abbreviation.swift */; };
+		1A58D39E251F110800B8D3FB /* SelectBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A58D39D251F110800B8D3FB /* SelectBaseViewController.swift */; };
+		1A58D3A22531C5D900B8D3FB /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A58D3A12531C5D900B8D3FB /* DatePickerCell.swift */; };
+		1A6C081C254048EB00963596 /* ClockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6C081B254048EB00963596 /* ClockTableViewCell.swift */; };
+		1A798C2825569A9D00FC781E /* TimezoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A798C2725569A9D00FC781E /* TimezoneViewController.swift */; };
+		1AAF1A93253C7F7A004FA798 /* CalculationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAF1A92253C7F7A004FA798 /* CalculationTableViewCell.swift */; };
+		1ABFB6B6256800030043D2F6 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFB6B5256800030043D2F6 /* RoundButton.swift */; };
+		1AF95150255F8DF900891F23 /* Abbreviations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1AF9514F255F8DF900891F23 /* Abbreviations.plist */; };
+		2E195A552EF6833A00593D2F /* GoogleMobileAds.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E195A542EF6833A00593D2F /* GoogleMobileAds.xcframework */; };
+		2E195A562EF6833A00593D2F /* GoogleMobileAds.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2E195A542EF6833A00593D2F /* GoogleMobileAds.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2E195A592EF6834C00593D2F /* UserMessagingPlatform.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E195A582EF6834C00593D2F /* UserMessagingPlatform.xcframework */; };
+		2E195A5A2EF6834C00593D2F /* UserMessagingPlatform.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2E195A582EF6834C00593D2F /* UserMessagingPlatform.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2EF60D042F34B8B0005CA845 /* Pods_Jisa_Bokei.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6062154A690BBA88495B9B25 /* Pods_Jisa_Bokei.framework */; };
+		2F0918A6209ECA9F00EC8F96 /* TimeZoneIDModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F0918A4209ECA9F00EC8F96 /* TimeZoneIDModel.xcdatamodeld */; };
+		2F0918A8209ECD6600EC8F96 /* TimeZoneIDMaster.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F0918A7209ECD6600EC8F96 /* TimeZoneIDMaster.plist */; };
+		2F35B84B218D4EE400A22889 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F35B84A218D4EE400A22889 /* DataController.swift */; };
+		2F4DC7592058C6BD00C604BA /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4DC7582058C6BD00C604BA /* UserDefaultsExtension.swift */; };
+		2F4DC75B2058C70D00C604BA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4DC75A2058C70D00C604BA /* Constants.swift */; };
+		2F4DC75D2058FBEA00C604BA /* BaseGridData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4DC75C2058FBEA00C604BA /* BaseGridData.swift */; };
+		2F8BE7F91FD2FDA4007BB46D /* CalculationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BE7F81FD2FDA4007BB46D /* CalculationViewController.swift */; };
+		2F8BE7FB1FD2FDC7007BB46D /* ClockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BE7FA1FD2FDC7007BB46D /* ClockViewController.swift */; };
+		2FA99B172307E51A0018C80F /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA99B162307E51A0018C80F /* DataViewController.swift */; };
+		2FD1F310235AF5CC006CB6F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FE89C3E1FD2F3DE009E3056 /* Main.storyboard */; };
+		2FE89C391FD2F3DE009E3056 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE89C381FD2F3DE009E3056 /* AppDelegate.swift */; };
+		2FE89C421FD2F3DE009E3056 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FE89C411FD2F3DE009E3056 /* Assets.xcassets */; };
+		2FE89C501FD2F3DE009E3056 /* Jisa_BokeiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE89C4F1FD2F3DE009E3056 /* Jisa_BokeiTests.swift */; };
+		2FE89C5B1FD2F3DE009E3056 /* Jisa_BokeiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE89C5A1FD2F3DE009E3056 /* Jisa_BokeiUITests.swift */; };
+		2FECF328204A67790047ED26 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FECF327204A67790047ED26 /* LaunchViewController.swift */; };
+		2FECF32A204BBD2E0047ED26 /* CitySelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FECF329204BBD2E0047ED26 /* CitySelectViewController.swift */; };
+		2FECF32C204BD0880047ED26 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FECF32B204BD0880047ED26 /* MapViewController.swift */; };
+		2FECF32E204BD4340047ED26 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FECF32D204BD4340047ED26 /* ListViewController.swift */; };
+		2FECF33420542B700047ED26 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FECF33320542B700047ED26 /* TabBarController.swift */; };
+		2FECF3362054B51E0047ED26 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FECF3352054B51E0047ED26 /* SettingsViewController.swift */; };
+		2FFDFA7521A97C6200DB5AE9 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFDFA7421A97C6200DB5AE9 /* DateExtension.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2FE89C4C1FD2F3DE009E3056 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2FE89C2D1FD2F3DE009E3056 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2FE89C341FD2F3DE009E3056;
+			remoteInfo = "Jisa-Bokei";
+		};
+		2FE89C571FD2F3DE009E3056 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2FE89C2D1FD2F3DE009E3056 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2FE89C341FD2F3DE009E3056;
+			remoteInfo = "Jisa-Bokei";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2E195A572EF6833A00593D2F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2E195A5A2EF6834C00593D2F /* UserMessagingPlatform.xcframework in Embed Frameworks */,
+				2E195A562EF6833A00593D2F /* GoogleMobileAds.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1A14A6F12557764E00A67A00 /* Abbreviation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Abbreviation.swift; sourceTree = "<group>"; };
+		1A58D39D251F110800B8D3FB /* SelectBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBaseViewController.swift; sourceTree = "<group>"; };
+		1A58D3A12531C5D900B8D3FB /* DatePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
+		1A6C081B254048EB00963596 /* ClockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockTableViewCell.swift; sourceTree = "<group>"; };
+		1A798C2725569A9D00FC781E /* TimezoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimezoneViewController.swift; sourceTree = "<group>"; };
+		1AAF1A92253C7F7A004FA798 /* CalculationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationTableViewCell.swift; sourceTree = "<group>"; };
+		1ABFB6B5256800030043D2F6 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		1AF9514F255F8DF900891F23 /* Abbreviations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Abbreviations.plist; sourceTree = "<group>"; };
+		2E195A542EF6833A00593D2F /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; name = GoogleMobileAds.xcframework; path = "Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework/GoogleMobileAds.xcframework"; sourceTree = "<group>"; };
+		2E195A582EF6834C00593D2F /* UserMessagingPlatform.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; name = UserMessagingPlatform.xcframework; path = Pods/GoogleUserMessagingPlatform/Frameworks/Release/UserMessagingPlatform.xcframework; sourceTree = "<group>"; };
+		2F0918A5209ECA9F00EC8F96 /* TimeZoneIDModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimeZoneIDModel.xcdatamodel; sourceTree = "<group>"; };
+		2F0918A7209ECD6600EC8F96 /* TimeZoneIDMaster.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TimeZoneIDMaster.plist; sourceTree = "<group>"; };
+		2F35B84A218D4EE400A22889 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		2F4DC7582058C6BD00C604BA /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
+		2F4DC75A2058C70D00C604BA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2F4DC75C2058FBEA00C604BA /* BaseGridData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseGridData.swift; sourceTree = "<group>"; };
+		2F8BE7F81FD2FDA4007BB46D /* CalculationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationViewController.swift; sourceTree = "<group>"; };
+		2F8BE7FA1FD2FDC7007BB46D /* ClockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockViewController.swift; sourceTree = "<group>"; };
+		2FA99B162307E51A0018C80F /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
+		2FE89C351FD2F3DE009E3056 /* Jisa-Bokei.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Jisa-Bokei.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FE89C381FD2F3DE009E3056 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2FE89C3F1FD2F3DE009E3056 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2FE89C411FD2F3DE009E3056 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2FE89C461FD2F3DE009E3056 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FE89C4B1FD2F3DE009E3056 /* Jisa-BokeiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Jisa-BokeiTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FE89C4F1FD2F3DE009E3056 /* Jisa_BokeiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jisa_BokeiTests.swift; sourceTree = "<group>"; };
+		2FE89C511FD2F3DE009E3056 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FE89C561FD2F3DE009E3056 /* Jisa-BokeiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Jisa-BokeiUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FE89C5A1FD2F3DE009E3056 /* Jisa_BokeiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jisa_BokeiUITests.swift; sourceTree = "<group>"; };
+		2FE89C5C1FD2F3DE009E3056 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FECF327204A67790047ED26 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		2FECF329204BBD2E0047ED26 /* CitySelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySelectViewController.swift; sourceTree = "<group>"; };
+		2FECF32B204BD0880047ED26 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		2FECF32D204BD4340047ED26 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		2FECF33320542B700047ED26 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		2FECF3352054B51E0047ED26 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		2FFDFA7421A97C6200DB5AE9 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		56CF4628DB40453B83AC13CF /* Pods-Jisa-Bokei.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jisa-Bokei.release.xcconfig"; path = "Target Support Files/Pods-Jisa-Bokei/Pods-Jisa-Bokei.release.xcconfig"; sourceTree = "<group>"; };
+		6062154A690BBA88495B9B25 /* Pods_Jisa_Bokei.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jisa_Bokei.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		82821EFF9B25F1F5DD2750A2 /* Pods-Jisa-Bokei.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jisa-Bokei.debug.xcconfig"; path = "Target Support Files/Pods-Jisa-Bokei/Pods-Jisa-Bokei.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2FE89C321FD2F3DE009E3056 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EF60D042F34B8B0005CA845 /* Pods_Jisa_Bokei.framework in Frameworks */,
+				2E195A592EF6834C00593D2F /* UserMessagingPlatform.xcframework in Frameworks */,
+				2E195A552EF6833A00593D2F /* GoogleMobileAds.xcframework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2FE89C481FD2F3DE009E3056 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2FE89C531FD2F3DE009E3056 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2FE89C2C1FD2F3DE009E3056 = {
+			isa = PBXGroup;
+			children = (
+				2FE89C371FD2F3DE009E3056 /* Jisa-Bokei */,
+				2FE89C4E1FD2F3DE009E3056 /* Jisa-BokeiTests */,
+				2FE89C591FD2F3DE009E3056 /* Jisa-BokeiUITests */,
+				2FE89C361FD2F3DE009E3056 /* Products */,
+				61F2AA8C3530739B33DA0883 /* Pods */,
+				A1D582731F5460F495380EE2 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2FE89C361FD2F3DE009E3056 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2FE89C351FD2F3DE009E3056 /* Jisa-Bokei.app */,
+				2FE89C4B1FD2F3DE009E3056 /* Jisa-BokeiTests.xctest */,
+				2FE89C561FD2F3DE009E3056 /* Jisa-BokeiUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2FE89C371FD2F3DE009E3056 /* Jisa-Bokei */ = {
+			isa = PBXGroup;
+			children = (
+				2FE89C3E1FD2F3DE009E3056 /* Main.storyboard */,
+				2FECF327204A67790047ED26 /* LaunchViewController.swift */,
+				2FECF33320542B700047ED26 /* TabBarController.swift */,
+				2F8BE7F81FD2FDA4007BB46D /* CalculationViewController.swift */,
+				2F8BE7FA1FD2FDC7007BB46D /* ClockViewController.swift */,
+				2FECF3352054B51E0047ED26 /* SettingsViewController.swift */,
+				2FECF329204BBD2E0047ED26 /* CitySelectViewController.swift */,
+				2FECF32D204BD4340047ED26 /* ListViewController.swift */,
+				2FECF32B204BD0880047ED26 /* MapViewController.swift */,
+				2F4DC75C2058FBEA00C604BA /* BaseGridData.swift */,
+				2FE89C381FD2F3DE009E3056 /* AppDelegate.swift */,
+				2FE89C411FD2F3DE009E3056 /* Assets.xcassets */,
+				2F0918A7209ECD6600EC8F96 /* TimeZoneIDMaster.plist */,
+				1AF9514F255F8DF900891F23 /* Abbreviations.plist */,
+				2FE89C461FD2F3DE009E3056 /* Info.plist */,
+				2F4DC7582058C6BD00C604BA /* UserDefaultsExtension.swift */,
+				2F4DC75A2058C70D00C604BA /* Constants.swift */,
+				2F0918A4209ECA9F00EC8F96 /* TimeZoneIDModel.xcdatamodeld */,
+				2F35B84A218D4EE400A22889 /* DataController.swift */,
+				2FA99B162307E51A0018C80F /* DataViewController.swift */,
+				2FFDFA7421A97C6200DB5AE9 /* DateExtension.swift */,
+				1A58D39D251F110800B8D3FB /* SelectBaseViewController.swift */,
+				1A58D3A12531C5D900B8D3FB /* DatePickerCell.swift */,
+				1AAF1A92253C7F7A004FA798 /* CalculationTableViewCell.swift */,
+				1A6C081B254048EB00963596 /* ClockTableViewCell.swift */,
+				1A798C2725569A9D00FC781E /* TimezoneViewController.swift */,
+				1ABFB6B5256800030043D2F6 /* RoundButton.swift */,
+				1A14A6F12557764E00A67A00 /* Abbreviation.swift */,
+			);
+			path = "Jisa-Bokei";
+			sourceTree = "<group>";
+		};
+		2FE89C4E1FD2F3DE009E3056 /* Jisa-BokeiTests */ = {
+			isa = PBXGroup;
+			children = (
+				2FE89C4F1FD2F3DE009E3056 /* Jisa_BokeiTests.swift */,
+				2FE89C511FD2F3DE009E3056 /* Info.plist */,
+			);
+			path = "Jisa-BokeiTests";
+			sourceTree = "<group>";
+		};
+		2FE89C591FD2F3DE009E3056 /* Jisa-BokeiUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2FE89C5A1FD2F3DE009E3056 /* Jisa_BokeiUITests.swift */,
+				2FE89C5C1FD2F3DE009E3056 /* Info.plist */,
+			);
+			path = "Jisa-BokeiUITests";
+			sourceTree = "<group>";
+		};
+		61F2AA8C3530739B33DA0883 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				82821EFF9B25F1F5DD2750A2 /* Pods-Jisa-Bokei.debug.xcconfig */,
+				56CF4628DB40453B83AC13CF /* Pods-Jisa-Bokei.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A1D582731F5460F495380EE2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2E195A582EF6834C00593D2F /* UserMessagingPlatform.xcframework */,
+				2E195A542EF6833A00593D2F /* GoogleMobileAds.xcframework */,
+				6062154A690BBA88495B9B25 /* Pods_Jisa_Bokei.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2FE89C341FD2F3DE009E3056 /* Jisa-Bokei */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2FE89C5F1FD2F3DE009E3056 /* Build configuration list for PBXNativeTarget "Jisa-Bokei" */;
+			buildPhases = (
+				2FBD6DC75F0C84FD3B334764 /* [CP] Check Pods Manifest.lock */,
+				2FE89C311FD2F3DE009E3056 /* Sources */,
+				2FE89C321FD2F3DE009E3056 /* Frameworks */,
+				2FE89C331FD2F3DE009E3056 /* Resources */,
+				2E195A572EF6833A00593D2F /* Embed Frameworks */,
+				989B9BBFA93ADE6EBB43FE9B /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Jisa-Bokei";
+			productName = "Jisa-Bokei";
+			productReference = 2FE89C351FD2F3DE009E3056 /* Jisa-Bokei.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2FE89C4A1FD2F3DE009E3056 /* Jisa-BokeiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2FE89C621FD2F3DE009E3056 /* Build configuration list for PBXNativeTarget "Jisa-BokeiTests" */;
+			buildPhases = (
+				2FE89C471FD2F3DE009E3056 /* Sources */,
+				2FE89C481FD2F3DE009E3056 /* Frameworks */,
+				2FE89C491FD2F3DE009E3056 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2FE89C4D1FD2F3DE009E3056 /* PBXTargetDependency */,
+			);
+			name = "Jisa-BokeiTests";
+			productName = "Jisa-BokeiTests";
+			productReference = 2FE89C4B1FD2F3DE009E3056 /* Jisa-BokeiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2FE89C551FD2F3DE009E3056 /* Jisa-BokeiUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2FE89C651FD2F3DE009E3056 /* Build configuration list for PBXNativeTarget "Jisa-BokeiUITests" */;
+			buildPhases = (
+				2FE89C521FD2F3DE009E3056 /* Sources */,
+				2FE89C531FD2F3DE009E3056 /* Frameworks */,
+				2FE89C541FD2F3DE009E3056 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2FE89C581FD2F3DE009E3056 /* PBXTargetDependency */,
+			);
+			name = "Jisa-BokeiUITests";
+			productName = "Jisa-BokeiUITests";
+			productReference = 2FE89C561FD2F3DE009E3056 /* Jisa-BokeiUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2FE89C2D1FD2F3DE009E3056 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 2620;
+				ORGANIZATIONNAME = Private;
+				TargetAttributes = {
+					2FE89C341FD2F3DE009E3056 = {
+						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 1020;
+						ProvisioningStyle = Automatic;
+					};
+					2FE89C4A1FD2F3DE009E3056 = {
+						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 1020;
+						TestTargetID = 2FE89C341FD2F3DE009E3056;
+					};
+					2FE89C551FD2F3DE009E3056 = {
+						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 1020;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 2FE89C341FD2F3DE009E3056;
+					};
+				};
+			};
+			buildConfigurationList = 2FE89C301FD2F3DE009E3056 /* Build configuration list for PBXProject "Jisa-Bokei" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2FE89C2C1FD2F3DE009E3056;
+			productRefGroup = 2FE89C361FD2F3DE009E3056 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2FE89C341FD2F3DE009E3056 /* Jisa-Bokei */,
+				2FE89C4A1FD2F3DE009E3056 /* Jisa-BokeiTests */,
+				2FE89C551FD2F3DE009E3056 /* Jisa-BokeiUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2FE89C331FD2F3DE009E3056 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FD1F310235AF5CC006CB6F4 /* Main.storyboard in Resources */,
+				2F0918A8209ECD6600EC8F96 /* TimeZoneIDMaster.plist in Resources */,
+				1AF95150255F8DF900891F23 /* Abbreviations.plist in Resources */,
+				2FE89C421FD2F3DE009E3056 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2FE89C491FD2F3DE009E3056 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2FE89C541FD2F3DE009E3056 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2FBD6DC75F0C84FD3B334764 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Jisa-Bokei-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		989B9BBFA93ADE6EBB43FE9B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Jisa-Bokei/Pods-Jisa-Bokei-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/Google-Mobile-Ads-SDK/GoogleMobileAdsResources.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/GoogleUserMessagingPlatform/UserMessagingPlatformResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMobileAdsResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UserMessagingPlatformResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Jisa-Bokei/Pods-Jisa-Bokei-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2FE89C311FD2F3DE009E3056 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F0918A6209ECA9F00EC8F96 /* TimeZoneIDModel.xcdatamodeld in Sources */,
+				1AAF1A93253C7F7A004FA798 /* CalculationTableViewCell.swift in Sources */,
+				2F4DC75B2058C70D00C604BA /* Constants.swift in Sources */,
+				2FECF33420542B700047ED26 /* TabBarController.swift in Sources */,
+				2FECF32A204BBD2E0047ED26 /* CitySelectViewController.swift in Sources */,
+				2FFDFA7521A97C6200DB5AE9 /* DateExtension.swift in Sources */,
+				1A6C081C254048EB00963596 /* ClockTableViewCell.swift in Sources */,
+				1A798C2825569A9D00FC781E /* TimezoneViewController.swift in Sources */,
+				2FECF328204A67790047ED26 /* LaunchViewController.swift in Sources */,
+				2F8BE7F91FD2FDA4007BB46D /* CalculationViewController.swift in Sources */,
+				2FE89C391FD2F3DE009E3056 /* AppDelegate.swift in Sources */,
+				2F4DC75D2058FBEA00C604BA /* BaseGridData.swift in Sources */,
+				1A58D39E251F110800B8D3FB /* SelectBaseViewController.swift in Sources */,
+				2F8BE7FB1FD2FDC7007BB46D /* ClockViewController.swift in Sources */,
+				1A58D3A22531C5D900B8D3FB /* DatePickerCell.swift in Sources */,
+				2FECF32C204BD0880047ED26 /* MapViewController.swift in Sources */,
+				2FA99B172307E51A0018C80F /* DataViewController.swift in Sources */,
+				1ABFB6B6256800030043D2F6 /* RoundButton.swift in Sources */,
+				1A14A6F22557764E00A67A00 /* Abbreviation.swift in Sources */,
+				2F4DC7592058C6BD00C604BA /* UserDefaultsExtension.swift in Sources */,
+				2F35B84B218D4EE400A22889 /* DataController.swift in Sources */,
+				2FECF3362054B51E0047ED26 /* SettingsViewController.swift in Sources */,
+				2FECF32E204BD4340047ED26 /* ListViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2FE89C471FD2F3DE009E3056 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FE89C501FD2F3DE009E3056 /* Jisa_BokeiTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2FE89C521FD2F3DE009E3056 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FE89C5B1FD2F3DE009E3056 /* Jisa_BokeiUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2FE89C4D1FD2F3DE009E3056 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2FE89C341FD2F3DE009E3056 /* Jisa-Bokei */;
+			targetProxy = 2FE89C4C1FD2F3DE009E3056 /* PBXContainerItemProxy */;
+		};
+		2FE89C581FD2F3DE009E3056 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2FE89C341FD2F3DE009E3056 /* Jisa-Bokei */;
+			targetProxy = 2FE89C571FD2F3DE009E3056 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2FE89C3E1FD2F3DE009E3056 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2FE89C3F1FD2F3DE009E3056 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+			usesTabs = 0;
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2FE89C5D1FD2F3DE009E3056 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				"LD_RUNPATH_SEARCH_PATHS[arch=*]" = /usr/lib/swift;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2FE89C5E1FD2F3DE009E3056 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				"LD_RUNPATH_SEARCH_PATHS[arch=*]" = /usr/lib/swift;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2FE89C601FD2F3DE009E3056 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82821EFF9B25F1F5DD2750A2 /* Pods-Jisa-Bokei.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5ARQ42FA65;
+				INFOPLIST_FILE = "Jisa-Bokei/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "時差呆計";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[arch=*]" = /usr/lib/swift;
+				MARKETING_VERSION = 1.3;
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.sys-coms.Jisa-Bokei";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		2FE89C611FD2F3DE009E3056 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56CF4628DB40453B83AC13CF /* Pods-Jisa-Bokei.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5ARQ42FA65;
+				INFOPLIST_FILE = "Jisa-Bokei/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "時差呆計";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[arch=*]" = /usr/lib/swift;
+				MARKETING_VERSION = 1.3;
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.sys-coms.Jisa-Bokei";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		2FE89C631FD2F3DE009E3056 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5ARQ42FA65;
+				INFOPLIST_FILE = "Jisa-BokeiTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.sys-coms.Jisa-BokeiTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Jisa-Bokei.app/Jisa-Bokei";
+			};
+			name = Debug;
+		};
+		2FE89C641FD2F3DE009E3056 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5ARQ42FA65;
+				INFOPLIST_FILE = "Jisa-BokeiTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.sys-coms.Jisa-BokeiTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Jisa-Bokei.app/Jisa-Bokei";
+			};
+			name = Release;
+		};
+		2FE89C661FD2F3DE009E3056 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5ARQ42FA65;
+				INFOPLIST_FILE = "Jisa-BokeiUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.sys-coms.Jisa-BokeiUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Jisa-Bokei";
+			};
+			name = Debug;
+		};
+		2FE89C671FD2F3DE009E3056 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5ARQ42FA65;
+				INFOPLIST_FILE = "Jisa-BokeiUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.sys-coms.Jisa-BokeiUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Jisa-Bokei";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2FE89C301FD2F3DE009E3056 /* Build configuration list for PBXProject "Jisa-Bokei" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FE89C5D1FD2F3DE009E3056 /* Debug */,
+				2FE89C5E1FD2F3DE009E3056 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2FE89C5F1FD2F3DE009E3056 /* Build configuration list for PBXNativeTarget "Jisa-Bokei" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FE89C601FD2F3DE009E3056 /* Debug */,
+				2FE89C611FD2F3DE009E3056 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2FE89C621FD2F3DE009E3056 /* Build configuration list for PBXNativeTarget "Jisa-BokeiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FE89C631FD2F3DE009E3056 /* Debug */,
+				2FE89C641FD2F3DE009E3056 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2FE89C651FD2F3DE009E3056 /* Build configuration list for PBXNativeTarget "Jisa-BokeiUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FE89C661FD2F3DE009E3056 /* Debug */,
+				2FE89C671FD2F3DE009E3056 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2F0918A4209ECA9F00EC8F96 /* TimeZoneIDModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2F0918A5209ECA9F00EC8F96 /* TimeZoneIDModel.xcdatamodel */,
+			);
+			currentVersion = 2F0918A5209ECA9F00EC8F96 /* TimeZoneIDModel.xcdatamodel */;
+			path = TimeZoneIDModel.xcdatamodeld;
+			sourceTree = "<group>";
+			usesTabs = 0;
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 2FE89C2D1FD2F3DE009E3056 /* Project object */;
+}
