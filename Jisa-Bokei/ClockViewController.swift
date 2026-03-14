@@ -27,7 +27,6 @@ class ClockViewController: DataViewController {
     // 各セクションごとのセル数を返却
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let n = clockGrid.count
-//        print("ClockViewController:tableView(numberOfRowsInSection):section=\(section), clockGrid.count = \(n)")
         return n
     }
 
@@ -41,7 +40,6 @@ class ClockViewController: DataViewController {
 
     // メインメソッド
     override func viewDidLoad() {
-        print("ClockViewController:viewDidLoad call.")
         
         self.reuseIdentifier = ID.CELL.CLOCK
         self.tableView       = clockTableView
@@ -104,17 +102,23 @@ class ClockViewController: DataViewController {
         }
         // タイトル表示
         self.navigationItem.title = CONST.CLOCK
+        
+        // 広告表示
+        createBannerViewProgrammatically()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+      super.viewDidAppear(animated)
+      loadInlineAdaptiveBanner()
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        print("ClockViewController: viewWillappear call.")
         timerStart()
         // ビュー更新
         self.tableView.reloadData()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-        print("ClockViewController: viewWillDisappear call.")
         timerStop()
     }
 
@@ -124,15 +128,12 @@ class ClockViewController: DataViewController {
     }
 
     @objc func timerUpdate() {
-//        print("ClockViewController: timerUpdate: call")
         self.tableView.reloadData()
     }
 
     // 編集ボタンが押された
     override func setEditing(_ editing: Bool, animated: Bool) {
-        print("ClockViewController: setEditing call.")
         super.setEditing(editing, animated: animated)
-         
         tableView.setEditing(editing, animated: animated)
         if editing == true {
             // 編集モードにした時にはタイマーを止める
@@ -145,21 +146,19 @@ class ClockViewController: DataViewController {
 
     // タイマースタート
     func timerStart() {
-        print("ClockViewController:timerStart call.")
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.timerUpdate), userInfo: nil, repeats: true)
         timerControl = true
     }
 
     // タイマーストップ
     func timerStop() {
-        print("ClockViewController:timerStop call.")
         timer?.invalidate()
     }
-    
+ 
     func timerControlOff() {
         timerControl = false
     }
-    
+
     // セル並べ替えの処理
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
         let fRow = fromIndexPath.row
@@ -245,7 +244,6 @@ class ClockViewController: DataViewController {
     
     // 選択画面への画面遷移時の処理
     func transition(_ base:BaseGridData) {
-        print("ClockViewController:transition call.")
         //
         let storyboard: UIStoryboard = self.storyboard!
         let vc = storyboard.instantiateViewController(withIdentifier: ID.STORYBOARD.CITY_SELECT) as! CitySelectViewController
@@ -257,7 +255,6 @@ class ClockViewController: DataViewController {
 
     // 前画面から戻った時の再描画
     override func updateView() {
-//        print("ClockViewController:updateView:insertMode=\(self.insertMode)")
         // 挿入モード判定
         if self.insertMode {
             // データ挿入判定
@@ -283,18 +280,17 @@ class ClockViewController: DataViewController {
     }
 
     // 各indexPathのcellが横にスワイプされスワイプメニューが表示される際に呼ばれます．
-    func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
-        print("ClockViewController:tableView(willBeginEditingRowAt) call. \(indexPath)")
+    override func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
+        super.tableView(tableView, willBeginEditingRowAt: indexPath)
         timerStop()
     }
 
     // 各indexPathのcellのスワイプメニューが非表示になった際に呼ばれます．
-    func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
-        print("ClockViewController:tableView(didEndEditingRowAt) call. timerControl=\(timerControl)")
+    override func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
+        super.tableView(tableView, didEndEditingRowAt: indexPath)
         // 都市画面選択による非表示時はタイマーを開始しない
         if timerControl == true {
             timerStart()
         }
     }
-
 }

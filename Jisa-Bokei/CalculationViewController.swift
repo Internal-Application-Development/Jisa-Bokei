@@ -9,12 +9,9 @@
 import UIKit
 
 class CalculationViewController: DataViewController {
-
+    
     // セルデータ
     private var calcGrid = [[BaseGridData]]()
-
-    // 選択されている相手先都市のインデックス
-//    private var selectedPartnerCityIndex = 0
 
     // 時差計算
     @IBOutlet weak var calculationTableView: UITableView!
@@ -37,6 +34,24 @@ class CalculationViewController: DataViewController {
         return sectionTitles[section]
     }
 
+    // セクションヘッダのビュー設定
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if let header = view as? UITableViewHeaderFooterView {
+            header.textLabel?.textColor = UIColor.white             // 好きな色を指定
+            // グラデーションさせる範囲をUIViewControllerのviewのサイズに指定
+            let gradientLayer = CAGradientLayer()
+            gradientLayer.frame.size = header.frame.size
+            gradientLayer.colors = [UIColor.systemBlue.cgColor, UIColor.white.cgColor]
+            gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
+            gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+            header.layer.insertSublayer(gradientLayer, at: 0)
+        }
+    }
+
+    // セクションヘッダの高さ設定
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 32.0
+    }
     // 各セルの設定
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = calculationTableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! CalculationTableViewCell
@@ -46,7 +61,6 @@ class CalculationViewController: DataViewController {
             cell.configureCell(calcGrid[0][selectedPartnerCityIndex],calcGrid[1][indexPath.row])
         } else {
             let checked = (indexPath.section == 0 && indexPath.row == selectedPartnerCityIndex)
-//            print("CalculationViewController:tableView:selectedPartnerCityIndex=\(selectedPartnerCityIndex), checked=\(checked)")
             cell.configureCell(calcGrid[indexPath.section][indexPath.row],checked)
         }
         reCalcDate()
@@ -65,11 +79,10 @@ class CalculationViewController: DataViewController {
 
     // メインメソッド
     override func viewDidLoad() {
-//        print("CalculationViewController:viewDidLoad call!")
         self.reuseIdentifier = ID.CELL.CALC
         self.tableView       = calculationTableView
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         let key = KEY.init(type:UDEFS.ITEM.CALC)
         userDefaults.register(defaults: [KEY.IX_SELECT_PARTNER_CITY:0,
@@ -128,18 +141,22 @@ class CalculationViewController: DataViewController {
                 base.setCountryCode   (userDefaults.string (forKey: key.ItemsInSection(UDEFS.ITEM.COUNTRY_CODE   , i, s)))
                 base.setSecondFromGMT (userDefaults.integer(forKey: key.ItemsInSection(UDEFS.ITEM.SECONDFROMGMT  , i, s)))
                 let timezoneID =       userDefaults.string (forKey: key.ItemsInSection(UDEFS.ITEM.TIMEZONE_ID    , i, s))
-                let datetime   =       userDefaults.object (forKey: key.ItemsInSection(UDEFS.ITEM.DATETIME       , i, s)) as! Date
-                base.setDate          (datetime, timezoneID)
-                base.setTimezone      (timezoneID)
+                let datetime   =       userDefaults.object (forKey: key.ItemsInSection(UDEFS.ITEM.DATETIME       , i, s)) as? Date
+                if datetime != nil && timezoneID != nil {
+                    base.setDate(datetime!, timezoneID)
+                    base.setTimezone(timezoneID)
+                }
                 calcGrid[s].append(base)
             }
         }
         // タイトル表示
         self.navigationItem.title = CONST.CALC
-   }
+        
+        // 広告表示
+        createBannerViewProgrammatically()
+    }
 
     override func viewWillAppear(_ animated: Bool) {
-        print("CalculationViewController: viewWillappear call.")
         // ビュー更新
         self.tableView.reloadData()
     }
@@ -192,7 +209,6 @@ class CalculationViewController: DataViewController {
         // 移動の結果、移動先セクションの行数がMAX値を超えるようなら元に戻す
         let tSec  = proposedDestinationIndexPath.section
         let tRows = tableView.numberOfRows(inSection: tSec)
-//        print("CalculationViewController: tableView(targetIndexPathForMoveFromRowAt): tSec=\(tSec), tRows=\(tRows)")
         if tSec == 0 && tRows == CONST.SECTION0_MAX || tSec == 1 && tRows == CONST.SECTION1_MAX {
             return sourceIndexPath
         }
@@ -371,7 +387,6 @@ class CalculationViewController: DataViewController {
 
     // 前画面から戻った時の再描画
     override func updateView() {
-//        print("CalculationViewController:updateView:insertMode=\(self.insertMode)")
         // 挿入モード判定
         if self.insertMode {
             // データ挿入判定
@@ -405,4 +420,8 @@ class CalculationViewController: DataViewController {
         super.updateView()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+      super.viewDidAppear(animated)
+      loadInlineAdaptiveBanner()
+    }
 }
